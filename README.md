@@ -61,3 +61,12 @@ camunda:
 
 and then run `docker-compose up --build` in the same folder as the docker-compose and dockerfile.
 
+# Build the Plguin
+
+To build the plugin in the root of this repo, then `mvn clean package`
+
+Look in the generated `target` folder for `camunda.administrativeuser.plugin-0.0.0-SNAPSHOT.jar` file. Where 0.0.0 will be the current version.
+
+# Download the plugin:
+
+See the Releases: (https://github.com/DigitalState/camunda-administrative-user-plugin/releases)[https://github.com/DigitalState/camunda-administrative-user-plugin/releases]
