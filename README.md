@@ -69,4 +69,4 @@ Look in the generated `target` folder for `camunda.administrativeuser.plugin-0.0
 
 # Download the plugin:
 
-See the Releases: (https://github.com/DigitalState/camunda-administrative-user-plugin/releases)[https://github.com/DigitalState/camunda-administrative-user-plugin/releases]
+See the [Releases](https://github.com/DigitalState/camunda-administrative-user-plugin/releases)
