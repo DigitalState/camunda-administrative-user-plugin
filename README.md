@@ -28,3 +28,36 @@ The `administratorUserName` is mandatory is all uses of the plugin.  But the `ad
 
 This plugin is a proof of concept for automating the initial administrative user for Camunda BPM.  If you have additional use case or have problems using the plugin, please open a issue.
 
+# Installing the Plugin with Docker
+
+The plugin can easily be installed with Docker:
+
+Your dockerfile would look like the following:
+
+```dockerfile
+FROM camunda/camunda-bpm-platform:tomcat-7.8.0
+
+# Remove the camunda-inovice app which will result in no users being loaded
+RUN rm -r webapps/camunda-invoice
+
+# add bpm-platform.xml file into the Camunda Conf folder.
+# The bpm-platform.xml file has the Administrative User Plugin's configuration
+COPY bpm-platform.xml /camunda/conf/bpm-platform.xml
+
+# Copy Administrative User Plugin into the Camunda Lib folder
+COPY camunda.administrativeuser.plugin-0.1.0-SNAPSHOT.jar /camunda/lib/camunda.administrativeuser.plugin-0.1.0-SNAPSHOT.jar
+```
+
+You could have a docker-compose file such as:
+
+```yaml
+camunda:
+    build: .
+    environment:
+      - JAVA_OPTS=-Djava.security.egd=file:/dev/./urandom -Duser.timezone=America/Montreal
+    ports:
+      - "8055:8080"
+```
+
+and then run `docker-compose up --build` in the same folder as the docker-compose and dockerfile.
+
