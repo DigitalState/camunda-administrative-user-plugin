@@ -20,9 +20,9 @@ In the `bpm-platform.xml` file add the following to the `<plugins>` section:
     </properties>
 </plugin>
 ```
-On camunda engine start, the plugin will search for the `administratorUserName` value.  If the provided username is not found, the plugin will generate a user and relevant group/authorizations.  If the username is found, the plugin will not attempt to create the administrative user, group, or authorizations.
+On Camunda engine startup, the plugin will search for the `administratorUserName` value in the list of Camunda usernames.  If the provided username is **not** found, the plugin will generate a administrative user and relevant group/authorizations.  If the username **is** found, the plugin will not attempt to create the administrative user, group, or authorizations.
 
-The `administratorUserName` is mandatory is all uses of the plugin.  But the `administratorPassword`, `administratorFirstName`, `administratorLastName`, and `administratorEmail` properties are only mandatory if the `administratorUserName` does not exist in the user accounts when the engine starts.  This means that once the admin account has been created, you do not need to maintain the password in the xml file or relevant `env` variables.
+The `administratorUserName` is mandatory in all uses of the plugin.  The `administratorPassword`, `administratorFirstName`, `administratorLastName`, and `administratorEmail` properties are only mandatory if the `administratorUserName` does not exist in the user accounts when the engine starts.  THe reason for this is, once the administrative account has been created, you do not need to maintain the password in the xml file or relevant `env` variables.
 
 # Support
 
